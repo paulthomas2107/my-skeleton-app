@@ -16,8 +16,8 @@
 
 		$contactStore = [
 			{
-				name: "",
-				phoneNumber: ""
+				name: inputName,
+				phoneNumber: inputPhoneNumber	
 			},
 			...$contactStore
 		]
@@ -38,8 +38,14 @@
 			<span>Phone Number</span>
 			<input class="input" type="text" placeholder="Phone Number" bind:value={inputPhoneNumber}>
 		</label>
-		<button type="button" class="btn variant-filled">Add Contact</button>
+		<button type="button" class="btn variant-filled" on:click={addContact}>Add Contact</button>
 		<hr>
 		<h2 class="h2">Your Contacts</h2>
+		{#each $contactStore as contact, index}
+			<div class="card p-2">
+				<h1>{contact.name}</h1>
+				<h1>{contact.phoneNumber}</h1>
+			</div>
+		{/each}
 	</div>
 </div>
