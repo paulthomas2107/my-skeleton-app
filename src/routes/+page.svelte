@@ -23,6 +23,9 @@
 		]
 	}
 
+	function deleteContact(index: number) {
+		$contactStore = $contactStore.filter((contact, contactIndex) => contactIndex !== index)
+	}
 
 </script>
 
@@ -45,6 +48,7 @@
 			<div class="card p-2">
 				<h1>{contact.name}</h1>
 				<h1>{contact.phoneNumber}</h1>
+				<button type="button" class="btn btn-small variant-filled-error" on:click={() => deleteContact(index)}>Delete</button>
 			</div>
 		{/each}
 	</div>
